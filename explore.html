@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rawpoetrybyposii - Explore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+    .search-wrap { position: relative; margin-bottom: 20px; }
+    .search-wrap span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); }
+    .search-input {
+      width: 100%; padding: 12px 16px 12px 42px;
+      border: 1.5px solid #e0e0e0; border-radius: 25px;
+      font-size: 15px; font-family: 'Nunito', sans-serif;
+      outline: none; background: white;
+    }
+    .search-input:focus { border-color: #ff6600; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .pill {
+      padding: 6px 16px; border-radius: 20px;
+      border: 1.5px solid #e0e0e0; background: white;
+      font-size: 13px; font-weight: 600; color: #444;
+      cursor: pointer; font-family: 'Nunito', sans-serif;
+    }
+    .pill:hover, .pill.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
+
+    .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .explore-card {
+      background: white; border: 1px solid #e8e8e8;
+      border-radius: 10px; padding: 16px;
+    }
+    .explore-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .card-top img {
+      width: 42px; height: 42px; border-radius: 50%;
+      object-fit: cover; background-color: #f0f0f0;
+    }
+    .card-pub-name { font-size: 14px; font-weight: 700; }
+    .card-category  { font-size: 12px; color: #aaa; }
+    .card-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 14px; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .card-subs { font-size: 12px; color: #aaa; }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">rawpoetrybyposii</div>
+    <ul class="sidebar-nav">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="explore.html" class="active">🔍 Explore</a></li>
+      <li><a href="activity.html">🔔 Activity <span class="notif-badge">3</span></a></li>
+      <li><a href="chat.html">💬 Chat</a></li>
+      <li><a href="subscriptions.html">📩 Subscriptions</a></li>
+      <li><a href="profile.html">👤 Profile</a></li>
+    </ul>
+    <a href="profile.html" class="sidebar-user">
+      <img src="https://plus.unsplash.com/premium_photo-1661297433665-870517c1cf6f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZGFyayUyMGFjYWRlbWlhfGVufDB8fDB8fHww" alt="Posi"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="avatar-initials" style="display:none;">OP</div>
+      <div>
+        <span class="avatar-name">rawpoetrybyposii</span><br>
+        <span class="avatar-handle">@olamiposi3</span>
+      </div>
+    </a>
+  </aside>
+
+  <main class="main-content">
+
+    <h1 class="page-title">Explore</h1>
+    <p style="font-size:14px; color:#888; margin-bottom:24px;">Discover writers like you</p>
+
+    <div class="search-wrap">
+      <span>🔍</span>
+      <input class="search-input" type="text" placeholder="Search poetry, essays, writers…">
+    </div>
+
+    <div class="pills">
+      <button class="pill active" onclick="filterPill(this)">All</button>
+      <button class="pill" onclick="filterPill(this)">Poetry</button>
+      <button class="pill" onclick="filterPill(this)">Essays</button>
+      <button class="pill" onclick="filterPill(this)">Heartbreak</button>
+      <button class="pill" onclick="filterPill(this)">Faith</button>
+      <button class="pill" onclick="filterPill(this)">Healing</button>
+      <button class="pill" onclick="filterPill(this)">Philosophy</button>
+    </div>
+
+    <p style="font-family:'Lora',serif; font-size:17px; font-weight:700; margin-bottom:16px;">✨ Writers you might like</p>
+
+    <div class="cards-grid">
+
+      <div class="explore-card">
+        <div class="card-top">
+          
+          <img src="https://images.unsplash.com/photo-1673610264555-e0da8b84165d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwcG90cmFpdCUyMGRhcmslMjBtb29keSUyMGJsdXJ8ZW58MHx8MHx8fDA%3D" alt="writes dumb stuff">
+          <div>
+            <div class="card-pub-name">writes dumb stuff</div>
+            <div class="card-category">Poetry & raw thoughts</div>
+          </div>
+        </div>
+        <div class="card-desc">Honest, unfiltered writing about life, pain, and the small things that matter.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe subscribed" onclick="toggleSubscribe(this)">Subscribed ✓</button>
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <div class="card-top">
+          <img src="https://images.unsplash.com/photo-1673610264555-e0da8b84165d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwcG90cmFpdCUyMGRhcmslMjBtb29keSUyMGJsdXJ8ZW58MHx8MHx8fDA%3D" alt="Young Event Horizon">
+          <div>
+            <div class="card-pub-name">Young Event Horizon</div>
+            <div class="card-category">Dark reflections</div>
+          </div>
+        </div>
+        <div class="card-desc">Writing that sits in the dark corners of thought and finds something worth saying.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe subscribed" onclick="toggleSubscribe(this)">Subscribed ✓</button>
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <div class="card-top">
+          <img src="https://images.unsplash.com/photo-1569154107747-fb00e3b3430d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D"" alt="through my gorgeous eyes">
+          <div>
+            <div class="card-pub-name">through my gorgeous eyes</div>
+            <div class="card-category">Personal essays</div>
+          </div>
+        </div>
+        <div class="card-desc">Seeing ordinary life through a lens of beauty, honesty, and quiet wonder.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe" onclick="toggleSubscribe(this)">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <div class="card-top">
+          <img src="https://images.unsplash.com/photo-1461696114087-397271a7aedc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Debbieefgh">
+          <div>
+            <div class="card-pub-name">Debbieefgh ❤️</div>
+            <div class="card-category">Heartfelt writing</div>
+          </div>
+        </div>
+        <div class="card-desc">Writing from the heart, for the heart. Vulnerable, warm, and deeply human.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe" onclick="toggleSubscribe(this)">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <div class="card-top">
+          <img src="https://images.unsplash.com/photo-1519060825752-c4832f2d400a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D" alt="zayah">
+          <div>
+            <div class="card-pub-name">zayah 💕</div>
+            <div class="card-category">Thoughts & feelings</div>
+          </div>
+        </div>
+        <div class="card-desc">Late night thoughts, honest feelings, and the kind of writing that feels like a text from a friend.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe" onclick="toggleSubscribe(this)">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <div class="card-top">
+          <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Nkwo Nneoma">
+          <div>
+            <div class="card-pub-name">Nkwo Nneoma</div>
+            <div class="card-category">Personal essays</div>
+          </div>
+        </div>
+        <div class="card-desc">Reflective, thoughtful writing about identity, culture, and becoming.</div>
+        <div class="card-bottom">
+          <span class="card-subs">Free</span>
+          <button class="btn-subscribe" onclick="toggleSubscribe(this)">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function filterPill(pill) {
+      document.querySelectorAll('.pill').forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+    }
+    function toggleSubscribe(button) {
+      if (button.classList.contains('subscribed')) {
+        button.classList.remove('subscribed');
+        button.textContent = 'Subscribe';
+      } else {
+        button.classList.add('subscribed');
+        button.textContent = 'Subscribed ✓';
+      }
+    }
+  </script>
+
+</body>
+</html>
