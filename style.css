@@ -776,3 +776,38 @@ body {
   color: #aaa;
   margin: 22px 0 12px;
 }
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .container {
+    width: 100%;
+    padding: 0 5px;
+  }
+  nav, .sidebar {
+    display: none; 
+  }
+  header, main, footer {
+    padding: 10px 0;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  nav, .sidebar {
+    width: 100%;
+    float: none;
+  }
+}
+
+
